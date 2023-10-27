@@ -83,10 +83,15 @@ try:
         
         color_image = np.asanyarray(color_frame.get_data())
 
+        # images = np.hstack((color_image, depth_color_image)) # both streams need to have the same resolution
+
         cv2.imshow("Color Stream", color_image)
         
         # Render image in opencv window
         cv2.imshow("Depth Stream", depth_color_image)
+        
+        # cv2.imshow("Color and Depth Stream", images) 
+        
         key = cv2.waitKey(1)
         # if pressed escape exit program
         if key == 27:
