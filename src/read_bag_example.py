@@ -47,7 +47,7 @@ try:
 
     # Tell config that we will use a recorded device from file to be used by the pipeline through playback.
     # rs.config.enable_device_from_file(config, args.input)
-    rs.config.enable_device_from_file(config, path + "/bags/test4.bag")
+    rs.config.enable_device_from_file(config, path + "/bags/2023-10-30 20:41:50.807534 - cam0.bag")
 
     # Configure the pipeline to stream the depth stream
     # Change this parameters according to the recorded bag file resolution
