@@ -8,7 +8,10 @@ import pyrealsense2 as rs
 
 import numpy as np
 import cv2
+import os
 
+path = os.path.dirname(os.path.abspath(__file__))
+mp_util_path = os.path.join(path, '..', 'mp_util')
 
 def draw_landmarks_on_image(rgb_image, detection_result):
   pose_landmarks_list = detection_result.pose_landmarks
@@ -32,7 +35,7 @@ def draw_landmarks_on_image(rgb_image, detection_result):
 
 def main():
     # STEP 2: Create an PoseLandmarker object.
-    base_options = python.BaseOptions(model_asset_path='pose_landmarker_full.task')
+    base_options = python.BaseOptions(model_asset_path=mp_util_path+'/pose_landmarker_full.task')
     options = vision.PoseLandmarkerOptions(
         base_options=base_options,
         output_segmentation_masks=True)
