@@ -16,6 +16,8 @@ import argparse
 # Import os.path for file path manipulation
 import os.path
 
+from tkinter import filedialog as fd
+
 # # Create object for parsing command-line options
 # parser = argparse.ArgumentParser(description="Read recorded bag file and display depth stream in jet colormap.\
 #                                 Remember to change the stream fps and format to match the recorded.")
@@ -43,11 +45,13 @@ try:
     # Create a config object
     config = rs.config()
 
-    
+    filename = fd.askopenfilename(initialdir=path + "/bags/")
 
     # Tell config that we will use a recorded device from file to be used by the pipeline through playback.
     # rs.config.enable_device_from_file(config, args.input)
-    rs.config.enable_device_from_file(config, path + "/bags/2023-10-30 20:41:50.807534 - cam0.bag")
+    # rs.config.enable_device_from_file(config, path + "/bags/2023-10-30 20:41:50.807534 - cam0.bag")
+    rs.config.enable_device_from_file(config, filename)
+
 
     # Configure the pipeline to stream the depth stream
     # Change this parameters according to the recorded bag file resolution
