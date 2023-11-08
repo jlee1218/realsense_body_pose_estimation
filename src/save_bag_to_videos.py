@@ -39,8 +39,6 @@ def save_to_video(file_path):
         color_frame_width = frame.get_color_frame().width
         color_frame_height = frame.get_color_frame().height
         
-        
-        
         # MP4 Format
         fourcc = cv2.VideoWriter_fourcc(*'MJPG')
         color_out = cv2.VideoWriter(path + '/videos/' + file_name + ' - rgb.mp4', fourcc, 30.0, (color_frame_width, color_frame_height))

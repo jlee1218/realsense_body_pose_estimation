@@ -38,7 +38,6 @@ def main():
             config.enable_stream(rs.stream.color, 1280, 720, rs.format.bgr8, 30)
             
             profiles.append(pipelines[i].start(config))
-            
         
         # Allow cameras to stabilize
         time.sleep(5)
@@ -50,7 +49,6 @@ def main():
         
         # Streaming loop
         while True: 
-            
             for i, pipeline in enumerate(pipelines):
                 frame = pipeline.wait_for_frames()
                 
@@ -69,7 +67,6 @@ def main():
         
         for pipeline in pipelines: 
             pipeline.stop()
-
 
     except Exception as e:
         print(e)
